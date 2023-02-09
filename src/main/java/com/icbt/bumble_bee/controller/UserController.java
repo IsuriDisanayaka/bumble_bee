@@ -10,6 +10,8 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
+
 /**
  * @author Isuri Disanayaka <isuriumeshika1@gmail.com>
  * @since 2/5/2023
@@ -26,6 +28,13 @@ public class UserController {
     public ResponseEntity saveUser(@RequestBody UserDto userDto) {
         String userName = userService.saveUser(userDto);
         return new ResponseEntity(new StandardResponse(200, "Done", userName), HttpStatus.CREATED);
+    }
+
+    @GetMapping
+    public ResponseEntity getAllUsers(){
+        ArrayList<UserDto> getAllUsers = userService.getGetAllUsers();
+
+        return new ResponseEntity(new StandardResponse(200,"Done",getAllUsers),HttpStatus.OK);
     }
 }
 

@@ -6,10 +6,13 @@ import com.icbt.bumble_bee.exception.ValidateException;
 import com.icbt.bumble_bee.repo.UserRepo;
 import com.icbt.bumble_bee.service.UserService;
 import org.modelmapper.ModelMapper;
+import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author Isuri Disanayaka <isuriumeshika1@gmail.com>
@@ -37,6 +40,12 @@ public class UserServiceImpl implements UserService {
          return user.getFirstName();
 
 
+    }
+
+    @Override
+    public ArrayList<UserDto> getGetAllUsers() {
+        List<User>all= userRepo.findAll();
+        return mapper.map(all , new TypeToken<ArrayList<UserDto>>(){}.getType());
     }
 
 }

@@ -32,6 +32,10 @@ public class User {
     private String lastName;
 
     @Column(columnDefinition = "VARCHAR(100)")
+    @NotNull(message = "Full Name is mandatory")
+    private String fullName;
+
+    @Column(columnDefinition = "VARCHAR(100)")
     @NotNull(message = "Address is mandatory")
     private String address;
 
