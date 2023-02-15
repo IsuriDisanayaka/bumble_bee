@@ -61,8 +61,8 @@ public class User {
     @Enumerated(EnumType.STRING)
     private Gender gender;
 
-    @Column(columnDefinition = "Integer(10)")
-    private int budget ;
+    @Column(columnDefinition = "Double")
+    private double budget ;
 
     @CreationTimestamp
     @Column(columnDefinition = "DATETIME")
