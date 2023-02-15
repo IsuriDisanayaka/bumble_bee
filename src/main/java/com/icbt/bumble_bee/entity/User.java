@@ -51,7 +51,6 @@ public class User {
     private String email;
 
     @Column(columnDefinition = "VARCHAR(50)",unique = true)
-
     @NotBlank(message = "NIC is mandatory")
     private String nic;
 

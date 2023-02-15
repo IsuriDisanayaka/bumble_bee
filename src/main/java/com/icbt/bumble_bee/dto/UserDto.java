@@ -26,7 +26,7 @@ public class UserDto implements SuperDto {
     private String nic;
     private Date dateOfBirth;
     private Gender gender;
-    private int budget ;
+    private double budget ;
     private Date createdDate;
     private boolean isDeleted;
 

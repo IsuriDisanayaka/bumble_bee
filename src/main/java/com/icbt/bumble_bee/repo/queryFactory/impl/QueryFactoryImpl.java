@@ -38,7 +38,7 @@ public class QueryFactoryImpl implements QueryFactory {
             case "gender":
                 return userRepo.findByGender(input);
             case "budget":
-                return userRepo.findByBudget(Integer.parseInt(input));
+                return userRepo.findByBudget(Double.parseDouble(input));
 
 
             default:

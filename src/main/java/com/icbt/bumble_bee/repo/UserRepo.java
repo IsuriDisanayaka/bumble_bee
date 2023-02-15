@@ -42,5 +42,5 @@ public interface UserRepo extends JpaRepository<User, Integer> {
     List<User> findByGender(String input);
 
     @Query(value = "SELECT * FROM  User where budget like ?%  ", nativeQuery = true)
-    List<User> findByBudget(int parseInt);
+    List<User> findByBudget(double parseInt);
 }
