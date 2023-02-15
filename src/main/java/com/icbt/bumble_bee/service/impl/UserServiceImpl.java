@@ -4,6 +4,7 @@ import com.icbt.bumble_bee.dto.UserDto;
 import com.icbt.bumble_bee.entity.User;
 import com.icbt.bumble_bee.exception.ValidateException;
 import com.icbt.bumble_bee.repo.UserRepo;
+import com.icbt.bumble_bee.repo.queryFactory.QueryFactory;
 import com.icbt.bumble_bee.service.UserService;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
@@ -29,14 +30,17 @@ public class UserServiceImpl implements UserService {
     @Autowired
     ModelMapper mapper;
 
+    @Autowired
+    QueryFactory queryFactory;
+
     @Override
     public String saveUser(UserDto dto) {
 
             if (userRepo.existsById(dto.getId())) {
                 throw new ValidateException("User Already Exist");
             }
+         User user = userRepo.save(mapper.map(dto, User.class ));
 
-        User user = userRepo.save(mapper.map(dto, User.class));
          return user.getFirstName();
 
 
@@ -46,6 +50,12 @@ public class UserServiceImpl implements UserService {
     public ArrayList<UserDto> getGetAllUsers() {
         List<User>all= userRepo.findAll();
         return mapper.map(all , new TypeToken<ArrayList<UserDto>>(){}.getType());
+    }
+
+    @Override
+    public List<UserDto> searchUser(String type, String input) {
+        List<User>search=queryFactory.GenerateSearchQuery(type,input);
+        return mapper.map(search, new TypeToken<ArrayList<UserDto>>(){}.getType());
     }
 
 }

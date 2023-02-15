@@ -11,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author Isuri Disanayaka <isuriumeshika1@gmail.com>
@@ -35,6 +36,13 @@ public class UserController {
         ArrayList<UserDto> getAllUsers = userService.getGetAllUsers();
 
         return new ResponseEntity(new StandardResponse(200,"Done",getAllUsers),HttpStatus.OK);
+    }
+
+    @GetMapping(path = "/{type}/{input}")
+    public ResponseEntity Search(@PathVariable("type")String type,@PathVariable("input") String input) {
+        List<UserDto> search = userService.searchUser(type,input);
+        return new ResponseEntity(new StandardResponse(200, "Done", search), HttpStatus.OK);
+
     }
 }
 

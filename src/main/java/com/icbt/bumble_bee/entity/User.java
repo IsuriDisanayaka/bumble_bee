@@ -4,6 +4,7 @@ import com.icbt.bumble_bee.entity.enums.Gender;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
@@ -57,11 +58,16 @@ public class User {
     @Enumerated(EnumType.STRING)
     private Gender gender;
 
+    @Column(columnDefinition = "Integer(10)")
+
+    private int budget ;
+
     @Column(columnDefinition = "DATETIME",nullable = false)
     private Date createdDate;
 
-    @Column(columnDefinition = "TINYINT", nullable = false)
-    private boolean isDeleted;
+
+    @Value("${some.key:false}")
+    private boolean isDeleted ;
 
 
 

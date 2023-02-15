@@ -3,6 +3,7 @@ package com.icbt.bumble_bee.service;
 import com.icbt.bumble_bee.dto.UserDto;
 
 import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -12,7 +13,7 @@ import java.util.ArrayList;
 public interface UserService {
    String saveUser(UserDto dto);
    ArrayList<UserDto> getGetAllUsers();
-
+   List<UserDto>searchUser(String type,String input);
 
 
 
