@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.math.BigDecimal;
 import java.util.Date;
 
 /**
@@ -26,7 +27,7 @@ public class UserDto implements SuperDto {
     private String nic;
     private Date dateOfBirth;
     private Gender gender;
-    private double budget ;
+    private BigDecimal budget ;
     private Date createdDate;
     private boolean isDeleted;
 

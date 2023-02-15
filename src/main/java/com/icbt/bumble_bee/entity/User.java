@@ -1,6 +1,6 @@
 package com.icbt.bumble_bee.entity;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
+
 import com.icbt.bumble_bee.entity.enums.Gender;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Value;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import java.math.BigDecimal;
 import java.util.Date;
 
 /**
@@ -61,8 +62,8 @@ public class User {
     @Enumerated(EnumType.STRING)
     private Gender gender;
 
-    @Column(columnDefinition = "Double")
-    private double budget ;
+
+    private BigDecimal budget ;
 
     @CreationTimestamp
     @Column(columnDefinition = "DATETIME")
