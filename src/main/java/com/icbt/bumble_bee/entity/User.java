@@ -1,9 +1,11 @@
 package com.icbt.bumble_bee.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.icbt.bumble_bee.entity.enums.Gender;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.CreationTimestamp;
 import org.springframework.beans.factory.annotation.Value;
 
 import javax.persistence.*;
@@ -48,24 +50,26 @@ public class User {
     @NotBlank(message = "Email is mandatory")
     private String email;
 
-    @Column(columnDefinition = "VARCHAR(50)")
+    @Column(columnDefinition = "VARCHAR(50)",unique = true)
+
     @NotBlank(message = "NIC is mandatory")
     private String nic;
 
     @Column(columnDefinition = "DATETIME",nullable = false)
+    @Temporal(TemporalType.DATE)
     private Date dateOfBirth;
 
     @Enumerated(EnumType.STRING)
     private Gender gender;
 
     @Column(columnDefinition = "Integer(10)")
-
     private int budget ;
 
-    @Column(columnDefinition = "DATETIME",nullable = false)
+    @CreationTimestamp
+    @Column(columnDefinition = "DATETIME")
     private Date createdDate;
 
-
+    @Column(columnDefinition = "TINYINT")
     @Value("${some.key:false}")
     private boolean isDeleted ;
 

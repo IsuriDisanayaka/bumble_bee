@@ -12,7 +12,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -39,6 +43,8 @@ public class UserServiceImpl implements UserService {
             if (userRepo.existsById(dto.getId())) {
                 throw new ValidateException("User Already Exist");
             }
+         // dto.setDeleted(false);
+
          User user = userRepo.save(mapper.map(dto, User.class ));
 
          return user.getFirstName();
