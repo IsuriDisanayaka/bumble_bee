@@ -6,7 +6,6 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import javax.validation.constraints.NotNull;
-import java.util.Date;
 import java.util.List;
 
 /**
@@ -43,4 +42,6 @@ public interface UserRepo extends JpaRepository<User, Integer> {
 
     @Query(value = "SELECT * FROM  User where budget like ?%  ", nativeQuery = true)
     List<User> findByBudget(double parseInt);
+
+
 }
