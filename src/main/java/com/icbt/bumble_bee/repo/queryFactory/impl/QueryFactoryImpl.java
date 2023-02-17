@@ -1,6 +1,8 @@
 package com.icbt.bumble_bee.repo.queryFactory.impl;
 
+import com.icbt.bumble_bee.entity.Product;
 import com.icbt.bumble_bee.entity.User;
+import com.icbt.bumble_bee.repo.ProductRepo;
 import com.icbt.bumble_bee.repo.UserRepo;
 import com.icbt.bumble_bee.repo.queryFactory.QueryFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,11 +20,14 @@ public class QueryFactoryImpl implements QueryFactory {
     @Autowired
     UserRepo userRepo;
 
+    @Autowired
+    ProductRepo productRepo;
+
     @Override
     public List<User> GenerateSearchQuery(String type, String input) {
         switch (type) {
-            case "id" :
-             return userRepo.findByIdLike(Integer.parseInt(input));
+            case "id":
+                return userRepo.findByIdLike(Integer.parseInt(input));
             case "full_name":
                 return userRepo.findByFullNameLike(input);
             case "address":
@@ -46,5 +51,24 @@ public class QueryFactoryImpl implements QueryFactory {
 
         }
 
+    }
+
+    @Override
+    public List<Product> GenerateSearchQueryByProduct(String type, String input) {
+        switch (type) {
+            case "id":
+                return productRepo.findByIdLike(Integer.parseInt(input));
+            case "name":
+                return productRepo.findByNameLike(input);
+            case "brand_name":
+                return productRepo.findByBrandNameLike(input);
+            case "category":
+                return productRepo.findByCategoryLike(input);
+            case "created_date":
+                return productRepo.findByDate(input);
+
+            default:
+                return null;
+        }
     }
 }

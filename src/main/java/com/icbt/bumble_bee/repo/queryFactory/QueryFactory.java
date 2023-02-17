@@ -1,7 +1,7 @@
 package com.icbt.bumble_bee.repo.queryFactory;
 
+import com.icbt.bumble_bee.entity.Product;
 import com.icbt.bumble_bee.entity.User;
-import org.springframework.stereotype.Component;
 
 import java.util.List;
 
@@ -12,5 +12,6 @@ import java.util.List;
 
 public interface QueryFactory {
     List<User> GenerateSearchQuery(String type, String input);
+    List<Product>GenerateSearchQueryByProduct(String type, String input);
 
 }
