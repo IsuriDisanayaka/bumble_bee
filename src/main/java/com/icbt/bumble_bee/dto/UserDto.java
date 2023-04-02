@@ -26,8 +26,9 @@ public class UserDto implements SuperDto {
     private String email;
     private String nic;
     private Date dateOfBirth;
-    private Gender gender;
+    private String gender;
     private BigDecimal budget ;
+    private String Password;
     private Date createdDate;
     private boolean isDeleted;
 

@@ -59,11 +59,14 @@ public class User {
     @Temporal(TemporalType.DATE)
     private Date dateOfBirth;
 
-    @Enumerated(EnumType.STRING)
-    private Gender gender;
+
+@Column(columnDefinition = "VARCHAR(50)")
+    private String gender;
 
 
     private BigDecimal budget ;
+    @Column(columnDefinition = "VARCHAR(10)")
+    private String Password;
 
     @CreationTimestamp
     @Column(columnDefinition = "DATETIME")
