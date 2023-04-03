@@ -76,6 +76,10 @@ public class User {
     @Value("${some.key:false}")
     private boolean isDeleted ;
 
+    @Column(columnDefinition = "VARCHAR(64)")
+    private String verificationCode;
+
+    private boolean enabled;
 
 
 

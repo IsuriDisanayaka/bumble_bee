@@ -31,6 +31,8 @@ public class UserDto implements SuperDto {
     private String Password;
     private Date createdDate;
     private boolean isDeleted;
+    private String verificationCode;
+    private boolean enabled;
 
 
 }

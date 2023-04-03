@@ -44,4 +44,6 @@ public interface UserRepo extends JpaRepository<User, Integer> {
     List<User> findByBudget(double parseInt);
 
 
+    @Query("SELECT u FROM User u WHERE u.verificationCode = ?1")
+    public User findByVerificationCode(String code);
 }
