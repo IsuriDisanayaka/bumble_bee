@@ -27,8 +27,9 @@ public class UserController {
 
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity saveUser(@RequestBody UserDto userDto) {
-        String userName = userService.saveUser(userDto);
-        return new ResponseEntity(new StandardResponse(200, "Done", userName), HttpStatus.CREATED);
+        UserDto user = userService.saveUser(userDto);
+
+        return new ResponseEntity(new StandardResponse(200, "Done", user), HttpStatus.CREATED);
     }
 
     @GetMapping

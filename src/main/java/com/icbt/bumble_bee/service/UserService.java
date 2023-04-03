@@ -11,7 +11,7 @@ import java.util.List;
  * @since 2/3/2023
  **/
 public interface UserService {
-   String saveUser(UserDto dto);
+   UserDto  saveUser(UserDto dto);
    ArrayList<UserDto> getGetAllUsers();
    List<UserDto>searchUser(String type,String input);
 

@@ -34,7 +34,7 @@ public class UserServiceImpl implements UserService {
     QueryFactory queryFactory;
 
     @Override
-    public String saveUser(UserDto dto) {
+    public UserDto saveUser(UserDto dto) {
 
             if (userRepo.existsById(dto.getId())) {
                 throw new ValidateException("User Already Exist");
@@ -43,7 +43,7 @@ public class UserServiceImpl implements UserService {
 
          User user = userRepo.save(mapper.map(dto, User.class ));
 
-         return user.getFirstName();
+         return mapper.map(user,UserDto.class);
 
 
     }
