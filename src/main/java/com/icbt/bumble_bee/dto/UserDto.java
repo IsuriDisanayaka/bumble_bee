@@ -1,0 +1,38 @@
+package com.icbt.bumble_bee.dto;
+
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import java.math.BigDecimal;
+import java.util.Date;
+
+/**
+ * @author Isuri Disanayaka <isuriumeshika1@gmail.com>
+ * @since 2/3/2023
+ **/
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
+public class UserDto implements SuperDto {
+
+    private int id;
+    private String firstName;
+    private String lastName;
+    private String fullName;
+    private String address;
+    private String contact;
+    private String email;
+    private String nic;
+    private Date dateOfBirth;
+    private String gender;
+    private BigDecimal budget ;
+    private String Password;
+    private Date createdDate;
+    private boolean isDeleted;
+    private String verificationCode;
+    private boolean enabled;
+
+
+}
