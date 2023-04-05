@@ -24,8 +24,7 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column(name = "image_url")
-    private String imageUrl;
+
 
     @Column(columnDefinition = "VARCHAR(100)")
     @NotNull(message = "Name is mandatory")
@@ -35,9 +34,6 @@ public class Product {
     @NotNull(message = "Brand Name is mandatory")
     private String brandName;
 
-    @Column(columnDefinition = "VARCHAR(100)")
-    @NotNull(message = " Category  is mandatory")
-    private String category;
 
     @Column(columnDefinition = "VARCHAR(100)")
     @NotNull(message = "Description is mandatory")

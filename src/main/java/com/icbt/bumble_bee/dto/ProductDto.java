@@ -17,10 +17,8 @@ import java.util.Date;
 @Data
 public class ProductDto implements SuperDto{
     private int id;
-    private String imageUrl;
     private String name;
     private String brandName;
-    private String category;
     private String description;
     private BigDecimal price ;
     private Date createdDate;

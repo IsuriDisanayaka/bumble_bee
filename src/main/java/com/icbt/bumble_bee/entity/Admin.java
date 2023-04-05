@@ -31,7 +31,7 @@ public class Admin {
 //
 //    private String verificationToken;
 //
-    private boolean isVerified;
+//    private boolean isVerified;
     @Column(columnDefinition = "VARCHAR(50)")
     @NotBlank(message = "Email is mandatory")
     private String email;
