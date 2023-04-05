@@ -28,7 +28,7 @@ public class QueryFactoryImpl implements QueryFactory {
         switch (type) {
             case "id":
                 return userRepo.findByIdLike(Integer.parseInt(input));
-            case "full_name":
+            case "fullName":
                 return userRepo.findByFullNameLike(input);
             case "address":
                 return userRepo.findByAddress(input);
@@ -38,7 +38,7 @@ public class QueryFactoryImpl implements QueryFactory {
                 return userRepo.findByEmail(input);
             case "nic":
                 return userRepo.findByNic(input);
-            case "date_of_birth":
+            case "dateOfBirth":
                 return userRepo.findByDateOfBirth(input);
             case "gender":
                 return userRepo.findByGender(input);
@@ -60,11 +60,11 @@ public class QueryFactoryImpl implements QueryFactory {
                 return productRepo.findByIdLike(Integer.parseInt(input));
             case "name":
                 return productRepo.findByNameLike(input);
-            case "brand_name":
+            case "brandName":
                 return productRepo.findByBrandNameLike(input);
             case "category":
                 return productRepo.findByCategoryLike(input);
-            case "created_date":
+            case "createdDate":
                 return productRepo.findByDate(input);
 
             default:

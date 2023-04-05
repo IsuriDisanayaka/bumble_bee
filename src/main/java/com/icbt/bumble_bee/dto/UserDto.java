@@ -1,6 +1,6 @@
 package com.icbt.bumble_bee.dto;
 
-import com.icbt.bumble_bee.entity.enums.Gender;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
