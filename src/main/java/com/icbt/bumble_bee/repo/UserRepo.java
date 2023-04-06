@@ -46,4 +46,6 @@ public interface UserRepo extends JpaRepository<User, Integer> {
 
     @Query("SELECT u FROM User u WHERE u.verificationCode = ?1")
     public User findByVerificationCode(String code);
+    @Query(value = "SELECT COUNT(*) FROM User")
+    int getTotalUsers();
 }

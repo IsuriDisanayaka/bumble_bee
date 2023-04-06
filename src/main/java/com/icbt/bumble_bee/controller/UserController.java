@@ -2,6 +2,7 @@ package com.icbt.bumble_bee.controller;
 
 import com.icbt.bumble_bee.dto.UserDto;
 import com.icbt.bumble_bee.exception.NotFoundException;
+import com.icbt.bumble_bee.repo.UserRepo;
 import com.icbt.bumble_bee.service.UserService;
 import com.icbt.bumble_bee.util.StandardResponse;
 import net.bytebuddy.utility.RandomString;
@@ -63,6 +64,12 @@ public class UserController {
         } else {
             return "verify_fail";
         }
+    }
+    @Autowired
+    private UserRepo userRepo;
+    @GetMapping("/total")
+    public int getTotalUsers() {
+        return userRepo.getTotalUsers();
     }
 }
 
