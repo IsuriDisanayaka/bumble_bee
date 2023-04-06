@@ -2,6 +2,7 @@ package com.icbt.bumble_bee.controller;
 
 import com.icbt.bumble_bee.dto.ProductDto;
 import com.icbt.bumble_bee.exception.NotFoundException;
+import com.icbt.bumble_bee.repo.ProductRepo;
 import com.icbt.bumble_bee.service.ProductService;
 import com.icbt.bumble_bee.util.StandardResponse;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -55,5 +56,10 @@ public class ProductController {
        productService.updateProduct(dto);
         return new ResponseEntity(new StandardResponse(200, "Done", dto), HttpStatus.OK);
     }
-
+    @Autowired
+    private ProductRepo productRepo;
+    @GetMapping("/total")
+    public int getTotalUsers() {
+        return productRepo.getTotalProducts();
+    }
     }

@@ -33,6 +33,8 @@ public interface ProductRepo  extends JpaRepository<Product, Integer> {
     @Query(value="SELECT * FROM Product where created_date  ",nativeQuery = true)
     List<Product> findByDate(String input);
 
+    @Query(value = "SELECT COUNT(*) FROM Product ")
+    int getTotalProducts();
 
 
 }
